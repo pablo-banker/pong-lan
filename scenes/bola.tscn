@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://vm1vljd6wak1"]
+
+[ext_resource type="Script" uid="uid://cqg2iwldjpufu" path="res://scripts/bola.gd" id="1_fdx0f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdx0f"]
+size = Vector2(16, 16)
+
+[node name="Bola" type="CharacterBody2D" unique_id=698660797]
+motion_mode = 1
+script = ExtResource("1_fdx0f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=928887949]
+shape = SubResource("RectangleShape2D_fdx0f")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=903179369]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)

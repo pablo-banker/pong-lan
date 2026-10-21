@@ -1,0 +1,421 @@
+[gd_scene format=3 uid="uid://dpnmtjw4v6sr5"]
+
+[ext_resource type="Script" uid="uid://bm51y4x1suevb" path="res://scripts/menu.gd" id="1_yqeox"]
+[ext_resource type="Script" uid="uid://dvb3f56ok0qy2" path="res://scripts/divisoria.gd" id="2_mhnvy"]
+[ext_resource type="PackedScene" uid="uid://bj257cgmnkn77" path="res://scenes/raquete.tscn" id="3_4ytvr"]
+[ext_resource type="PackedScene" uid="uid://vm1vljd6wak1" path="res://scenes/bola.tscn" id="4_g3eks"]
+[ext_resource type="Script" uid="uid://vwnuvha0aqx2" path="res://scripts/bot_pong.gd" id="5_4ytvr"]
+[ext_resource type="Script" uid="uid://dl3awiqudkiy2" path="res://scripts/bola_background.gd" id="5_g3eks"]
+[ext_resource type="FontFile" uid="uid://bmwn07hhg15to" path="res://ui/font/Chakra_Petch/ChakraPetch-Bold.ttf" id="7_v86rl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6lef"]
+size = Vector2(1152, 20)
+
+[sub_resource type="FontVariation" id="FontVariation_v86rl"]
+base_font = ExtResource("7_v86rl")
+spacing_glyph = 31
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqeox"]
+content_margin_left = 20.0
+content_margin_top = 12.0
+content_margin_right = 20.0
+content_margin_bottom = 12.0
+bg_color = Color(0.35686275, 0.6156863, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35686275, 0.6156863, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_con2f"]
+content_margin_left = 20.0
+content_margin_top = 12.0
+content_margin_right = 20.0
+content_margin_bottom = 12.0
+bg_color = Color(0.2509804, 0.49803922, 0.8784314, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2509804, 0.49803922, 0.8784314, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjb58"]
+content_margin_left = 20.0
+content_margin_top = 12.0
+content_margin_right = 20.0
+content_margin_bottom = 12.0
+bg_color = Color(0.47058824, 0.68235296, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.47058824, 0.68235296, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhnvy"]
+bg_color = Color(0.08235294, 0.12156863, 0.1882353, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.16470589, 0.21960784, 0.3137255, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yqeox"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vjb58"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_con2f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ytvr"]
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+bg_color = Color(0.043137256, 0.07058824, 0.1254902, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.16470589, 0.21960784, 0.3137255, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3eks"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35686275, 0.6156863, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Menu" type="Node2D" unique_id=1400142155 node_paths=PackedStringArray("opcoes_iniciais", "opcoes_jogar", "jogar", "configurar", "sair", "jogar_local", "criar_sala", "entrar_sala", "voltar", "conexao", "titulo_conexao", "descricao", "ip_local", "endereco_ip", "status", "conectar", "cancelar")]
+script = ExtResource("1_yqeox")
+opcoes_iniciais = NodePath("HUD/Margem/OpcoesIniciais")
+opcoes_jogar = NodePath("HUD/Margem/Jogar")
+jogar = NodePath("HUD/Margem/OpcoesIniciais/Jogar")
+configurar = NodePath("HUD/Margem/OpcoesIniciais/Configurar")
+sair = NodePath("HUD/Margem/OpcoesIniciais/Sair")
+jogar_local = NodePath("HUD/Margem/Jogar/JogarLocal")
+criar_sala = NodePath("HUD/Margem/Jogar/CriarSala")
+entrar_sala = NodePath("HUD/Margem/Jogar/EntrarSala")
+voltar = NodePath("HUD/Margem/Jogar/Voltar")
+conexao = NodePath("HUD/Conexao")
+titulo_conexao = NodePath("HUD/Conexao/Centralizador/Painel/MargemInterna/Conteudo/Titulo")
+descricao = NodePath("HUD/Conexao/Centralizador/Painel/MargemInterna/Conteudo/Descricao")
+ip_local = NodePath("HUD/Conexao/Centralizador/Painel/MargemInterna/Conteudo/IPLocal")
+endereco_ip = NodePath("HUD/Conexao/Centralizador/Painel/MargemInterna/Conteudo/EnderecoIP")
+status = NodePath("HUD/Conexao/Centralizador/Painel/MargemInterna/Conteudo/Status")
+conectar = NodePath("HUD/Conexao/Centralizador/Painel/MargemInterna/Conteudo/Conectar")
+cancelar = NodePath("HUD/Conexao/Centralizador/Painel/MargemInterna/Conteudo/Cancelar")
+
+[node name="Game" type="Node2D" parent="." unique_id=663811882]
+
+[node name="VisualQuadra" type="Node2D" parent="Game" unique_id=818388448]
+
+[node name="FundoTela" type="Polygon2D" parent="Game/VisualQuadra" unique_id=1139349136]
+color = Color(0.043137256, 0.07058824, 0.1254902, 1)
+polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
+
+[node name="AreaQuadra" type="Polygon2D" parent="Game/VisualQuadra" unique_id=1791646867]
+color = Color(0.08235294, 0.12156863, 0.1882353, 1)
+polygon = PackedVector2Array(0, 104, 1152, 104, 1152, 554, 0, 554)
+
+[node name="BordaSuperior" type="Line2D" parent="Game/VisualQuadra" unique_id=2127035804]
+points = PackedVector2Array(0, 104, 1152, 104)
+width = 2.0
+default_color = Color(0.16470589, 0.21960784, 0.3137255, 1)
+antialiased = true
+
+[node name="BordaInferior" type="Line2D" parent="Game/VisualQuadra" unique_id=442635704]
+points = PackedVector2Array(0, 544, 1152, 544)
+width = 2.0
+default_color = Color(0.16470589, 0.21960784, 0.3137255, 1)
+antialiased = true
+
+[node name="Divisoria" type="Node2D" parent="Game/VisualQuadra" unique_id=1432726169]
+script = ExtResource("2_mhnvy")
+
+[node name="RaqueteEsquerda" parent="Game" unique_id=1384058986 instance=ExtResource("3_4ytvr")]
+position = Vector2(60, 324)
+
+[node name="RaqueteDireita" parent="Game" unique_id=1971395960 instance=ExtResource("3_4ytvr")]
+position = Vector2(1092, 324)
+cor = Color(1, 0.57254905, 0.49411765, 1)
+
+[node name="Bola" parent="Game" unique_id=698660797 instance=ExtResource("4_g3eks")]
+position = Vector2(576, 324)
+script = ExtResource("5_g3eks")
+velocidade = 600.0
+centro = Vector2(576, 324)
+limite_esquerdo = -20.0
+limite_direito = 1172.0
+
+[node name="Polygon2D" parent="Game/Bola" index="1" unique_id=903179369]
+color = Color(0.9529412, 0.9647059, 0.9882353, 1)
+
+[node name="Camera2D" type="Camera2D" parent="Game/Bola" unique_id=1993912816]
+position = Vector2(4, 0)
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+position_smoothing_speed = 5.5
+
+[node name="ParedeSuperior" type="StaticBody2D" parent="Game" unique_id=1094237984]
+position = Vector2(576, 94)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/ParedeSuperior" unique_id=361011300]
+shape = SubResource("RectangleShape2D_i6lef")
+
+[node name="ParedeInferior" type="StaticBody2D" parent="Game" unique_id=2042566488]
+position = Vector2(576, 554)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/ParedeInferior" unique_id=1014376892]
+shape = SubResource("RectangleShape2D_i6lef")
+
+[node name="Bot" type="Node" parent="Game" unique_id=1509749765 node_paths=PackedStringArray("raquete_esquerda", "raquete_direita", "bola")]
+script = ExtResource("5_4ytvr")
+raquete_esquerda = NodePath("../RaqueteEsquerda")
+raquete_direita = NodePath("../RaqueteDireita")
+bola = NodePath("../Bola")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1463016020]
+
+[node name="Fundo" type="ColorRect" parent="HUD" unique_id=1205242610]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.03876, 0.07016479, 0.12315822, 0.67300004)
+
+[node name="Margem" type="MarginContainer" parent="HUD" unique_id=1629468538]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 100
+
+[node name="OpcoesIniciais" type="VBoxContainer" parent="HUD/Margem" unique_id=2051106189]
+custom_minimum_size = Vector2(360, 320)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Titulo" type="VBoxContainer" parent="HUD/Margem/OpcoesIniciais" unique_id=328736488]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = -30
+alignment = 1
+
+[node name="Label" type="Label" parent="HUD/Margem/OpcoesIniciais/Titulo" unique_id=30537791]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9529412, 0.9647059, 0.9882353, 1)
+theme_override_fonts/font = ExtResource("7_v86rl")
+theme_override_font_sizes/font_size = 120
+text = "PONG"
+
+[node name="Label2" type="Label" parent="HUD/Margem/OpcoesIniciais/Titulo" unique_id=78000312]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6039216, 0.65882355, 0.7372549, 1)
+theme_override_fonts/font = SubResource("FontVariation_v86rl")
+theme_override_font_sizes/font_size = 32
+text = "LAN "
+
+[node name="EspacoSuperior" type="Control" parent="HUD/Margem/OpcoesIniciais" unique_id=548777781]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Jogar" type="Button" parent="HUD/Margem/OpcoesIniciais" unique_id=1327978575]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.043137256, 0.07058824, 0.1254902, 1)
+theme_override_colors/font_focus_color = Color(0.043137256, 0.07058824, 0.1254902, 1)
+theme_override_colors/font_pressed_color = Color(0.043137256, 0.07058824, 0.1254902, 1)
+theme_override_colors/font_hover_color = Color(0.043137256, 0.07058824, 0.1254902, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_yqeox")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_con2f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vjb58")
+text = "Jogar"
+
+[node name="Configurar" type="Button" parent="HUD/Margem/OpcoesIniciais" unique_id=1898867688]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Configurações"
+
+[node name="Sair" type="Button" parent="HUD/Margem/OpcoesIniciais" unique_id=406376448]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Sair"
+
+[node name="Jogar" type="VBoxContainer" parent="HUD/Margem" unique_id=149512913]
+visible = false
+custom_minimum_size = Vector2(360, 320)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Titulo" type="Label" parent="HUD/Margem/Jogar" unique_id=413692184]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9529412, 0.9647059, 0.9882353, 1)
+theme_override_fonts/font = ExtResource("7_v86rl")
+theme_override_font_sizes/font_size = 64
+text = "Jogar"
+horizontal_alignment = 1
+
+[node name="EspacoSuperior" type="Control" parent="HUD/Margem/Jogar" unique_id=1341175226]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="JogarLocal" type="Button" parent="HUD/Margem/Jogar" unique_id=1531294330]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.043137256, 0.07058824, 0.1254902, 1)
+theme_override_colors/font_focus_color = Color(0.043137256, 0.07058824, 0.1254902, 1)
+theme_override_colors/font_pressed_color = Color(0.043137256, 0.07058824, 0.1254902, 1)
+theme_override_colors/font_hover_color = Color(0.043137256, 0.07058824, 0.1254902, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_yqeox")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_con2f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vjb58")
+text = "Mesmo teclado"
+
+[node name="CriarSala" type="Button" parent="HUD/Margem/Jogar" unique_id=90700404]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Criar sala LAN"
+
+[node name="EntrarSala" type="Button" parent="HUD/Margem/Jogar" unique_id=992360949]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Entrar na sala LAN"
+
+[node name="Voltar" type="Button" parent="HUD/Margem/Jogar" unique_id=1337776664]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Voltar"
+
+[node name="Conexao" type="Control" parent="HUD" unique_id=952746916]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Escurecimento" type="ColorRect" parent="HUD/Conexao" unique_id=1943703315]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.75000006)
+
+[node name="Centralizador" type="CenterContainer" parent="HUD/Conexao" unique_id=365238660]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Painel" type="PanelContainer" parent="HUD/Conexao/Centralizador" unique_id=936223610]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mhnvy")
+
+[node name="MargemInterna" type="MarginContainer" parent="HUD/Conexao/Centralizador/Painel" unique_id=1436599332]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Conteudo" type="VBoxContainer" parent="HUD/Conexao/Centralizador/Painel/MargemInterna" unique_id=1980017143]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Titulo" type="Label" parent="HUD/Conexao/Centralizador/Painel/MargemInterna/Conteudo" unique_id=248827186]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9529412, 0.9647059, 0.9882353, 1)
+theme_override_font_sizes/font_size = 32
+
+[node name="Descricao" type="Label" parent="HUD/Conexao/Centralizador/Painel/MargemInterna/Conteudo" unique_id=659227210]
+custom_minimum_size = Vector2(12, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6039216, 0.65882355, 0.7372549, 1)
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 3
+
+[node name="IPLocal" type="LineEdit" parent="HUD/Conexao/Centralizador/Painel/MargemInterna/Conteudo" unique_id=319167598]
+custom_minimum_size = Vector2(12, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.35686275, 0.6156863, 1, 1)
+theme_override_colors/font_uneditable_color = Color(0.35686275, 0.6156863, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yqeox")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_vjb58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_con2f")
+text = "IP deste computador"
+editable = false
+
+[node name="EnderecoIP" type="LineEdit" parent="HUD/Conexao/Centralizador/Painel/MargemInterna/Conteudo" unique_id=958236660]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9529412, 0.9647059, 0.9882353, 1)
+theme_override_colors/font_placeholder_color = Color(0.6039216, 0.65882355, 0.7372549, 1)
+theme_override_colors/caret_color = Color(0.35686275, 0.6156863, 1, 1)
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_4ytvr")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_g3eks")
+placeholder_text = "192.168.1.10"
+
+[node name="Status" type="Label" parent="HUD/Conexao/Centralizador/Painel/MargemInterna/Conteudo" unique_id=2117679771]
+custom_minimum_size = Vector2(10, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6039216, 0.65882355, 0.7372549, 1)
+theme_override_font_sizes/font_size = 16
+text = "2 jogadores. Uma partida"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Conectar" type="Button" parent="HUD/Conexao/Centralizador/Painel/MargemInterna/Conteudo" unique_id=1091571634]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Conectar"
+
+[node name="Cancelar" type="Button" parent="HUD/Conexao/Centralizador/Painel/MargemInterna/Conteudo" unique_id=1965406742]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Voltar"
+
+[editable path="Game/Bola"]

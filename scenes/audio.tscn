@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://djg3mdlq7ltul"]
+
+[ext_resource type="Script" uid="uid://cus3jn6w4ymse" path="res://scripts/audio.gd" id="1_6n3bj"]
+[ext_resource type="AudioStream" uid="uid://beknadvqvuobi" path="res://audio/select_001.ogg" id="2_dl6it"]
+[ext_resource type="AudioStream" uid="uid://c1p7lvthvmts8" path="res://audio/click_001.ogg" id="3_8kkbo"]
+[ext_resource type="AudioStream" uid="uid://bq1owpdyficwx" path="res://audio/pepSound1.ogg" id="4_3g2y6"]
+[ext_resource type="AudioStream" uid="uid://bqog7412mwb55" path="res://audio/pepSound3.ogg" id="5_lpqkh"]
+[ext_resource type="AudioStream" uid="uid://kyfct6w2ankn" path="res://audio/tone1.ogg" id="6_3g2y6"]
+[ext_resource type="AudioStream" uid="uid://bjex0xrgj4iup" path="res://audio/neon_sign_circuit_bpm145.ogg" id="6_lymfh"]
+[ext_resource type="AudioStream" uid="uid://83tk25gag52o" path="res://audio/neon_sign_circuit_climax_bpm160.ogg" id="7_8kkbo"]
+[ext_resource type="AudioStream" uid="uid://vpcfjn1vy7nx" path="res://audio/confirmation_001.ogg" id="7_lpqkh"]
+
+[node name="Node" type="Node" unique_id=424182506]
+script = ExtResource("1_6n3bj")
+som_hover = ExtResource("2_dl6it")
+som_clique = ExtResource("3_8kkbo")
+som_parede = ExtResource("4_3g2y6")
+som_raquete = ExtResource("5_lpqkh")
+som_contagem = ExtResource("6_3g2y6")
+som_ponto = ExtResource("7_lpqkh")
+musica_fundo = ExtResource("6_lymfh")
+musica_partida = ExtResource("7_8kkbo")

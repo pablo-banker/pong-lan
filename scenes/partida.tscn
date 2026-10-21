@@ -1,0 +1,366 @@
+[gd_scene format=3 uid="uid://dg053kh2n5prs"]
+
+[ext_resource type="PackedScene" uid="uid://bj257cgmnkn77" path="res://scenes/raquete.tscn" id="1_ejv66"]
+[ext_resource type="Script" uid="uid://cgnjpl0qglw6n" path="res://scripts/partida.gd" id="1_xp6uk"]
+[ext_resource type="Script" uid="uid://dvb3f56ok0qy2" path="res://scripts/divisoria.gd" id="2_boyft"]
+[ext_resource type="PackedScene" uid="uid://vm1vljd6wak1" path="res://scenes/bola.tscn" id="2_p1wq0"]
+[ext_resource type="PackedScene" uid="uid://bugks0ill53jg" path="res://scenes/kdb.tscn" id="4_i2x28"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejv66"]
+size = Vector2(1152, 20)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_boyft"]
+bg_color = Color(0.08235294, 0.12156863, 0.1882353, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.16470589, 0.21960784, 0.3137255, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Partida" type="Node2D" unique_id=777268612]
+script = ExtResource("1_xp6uk")
+
+[node name="VisualQuadra" type="Node2D" parent="." unique_id=2063423300]
+
+[node name="FundoTela" type="Polygon2D" parent="VisualQuadra" unique_id=695986823]
+color = Color(0.043137256, 0.07058824, 0.1254902, 1)
+polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
+
+[node name="AreaQuadra" type="Polygon2D" parent="VisualQuadra" unique_id=896902962]
+color = Color(0.08235294, 0.12156863, 0.1882353, 1)
+polygon = PackedVector2Array(0, 104, 1152, 104, 1152, 554, 0, 554)
+
+[node name="BordaSuperior" type="Line2D" parent="VisualQuadra" unique_id=999319065]
+points = PackedVector2Array(0, 104, 1152, 104)
+width = 2.0
+default_color = Color(0.16470589, 0.21960784, 0.3137255, 1)
+antialiased = true
+
+[node name="BordaInferior" type="Line2D" parent="VisualQuadra" unique_id=1360743174]
+points = PackedVector2Array(0, 544, 1152, 544)
+width = 2.0
+default_color = Color(0.16470589, 0.21960784, 0.3137255, 1)
+antialiased = true
+
+[node name="Divisoria" type="Node2D" parent="VisualQuadra" unique_id=1214586519]
+script = ExtResource("2_boyft")
+
+[node name="RaqueteEsquerda" parent="." unique_id=1384058986 instance=ExtResource("1_ejv66")]
+position = Vector2(60, 324)
+
+[node name="RaqueteDireita" parent="." unique_id=1019811855 instance=ExtResource("1_ejv66")]
+position = Vector2(1092, 324)
+cor = Color(1, 0.57254905, 0.49411765, 1)
+
+[node name="Bola" parent="." unique_id=698660797 instance=ExtResource("2_p1wq0")]
+position = Vector2(576, 324)
+
+[node name="Polygon2D" parent="Bola" index="1" unique_id=903179369]
+color = Color(0.9529412, 0.9647059, 0.9882353, 1)
+
+[node name="ParedeSuperior" type="StaticBody2D" parent="." unique_id=2036338123]
+position = Vector2(576, 94)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeSuperior" unique_id=724588287]
+shape = SubResource("RectangleShape2D_ejv66")
+
+[node name="ParedeInferior" type="StaticBody2D" parent="." unique_id=734459676]
+position = Vector2(576, 554)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeInferior" unique_id=1819532707]
+shape = SubResource("RectangleShape2D_ejv66")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1165757721]
+
+[node name="Interface" type="Control" parent="HUD" unique_id=372340841]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NomeEsquerda" type="Label" parent="HUD/Interface" unique_id=719979170]
+custom_minimum_size = Vector2(320, 40)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -544.0
+offset_top = 24.0
+offset_right = -224.0
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.35686275, 0.6156863, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "Jogador 1"
+
+[node name="Placar" type="Label" parent="HUD/Interface" unique_id=1533029770]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 12.0
+offset_right = 150.0
+offset_bottom = 79.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.9529412, 0.9647059, 0.9882353, 1)
+theme_override_font_sizes/font_size = 48
+text = "0 : 0"
+horizontal_alignment = 1
+
+[node name="Regra" type="Label" parent="HUD/Interface" unique_id=1339861197]
+custom_minimum_size = Vector2(300, 24)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 72.0
+offset_right = 150.0
+offset_bottom = 96.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.6039216, 0.65882355, 0.7372549, 1)
+theme_override_font_sizes/font_size = 14
+text = "PRIMEIRO A 5"
+horizontal_alignment = 1
+
+[node name="NomeDireita" type="Label" parent="HUD/Interface" unique_id=2061173098]
+custom_minimum_size = Vector2(320, 40)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 224.0
+offset_top = 24.0
+offset_right = 544.0
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.57254905, 0.49411765, 1)
+theme_override_font_sizes/font_size = 24
+text = "Jogador 2"
+horizontal_alignment = 2
+
+[node name="ControlesEsquerda" type="HBoxContainer" parent="HUD/Interface" unique_id=558984573]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -64.0
+offset_right = 352.0
+offset_bottom = -16.0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="Subir" parent="HUD/Interface/ControlesEsquerda" unique_id=730742669 instance=ExtResource("4_i2x28")]
+layout_mode = 2
+
+[node name="TextoSubir" type="Label" parent="HUD/Interface/ControlesEsquerda" unique_id=517696819]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6039216, 0.65882355, 0.7372549, 1)
+theme_override_font_sizes/font_size = 16
+text = "Subir"
+vertical_alignment = 1
+
+[node name="Descer" parent="HUD/Interface/ControlesEsquerda" unique_id=1736357229 instance=ExtResource("4_i2x28")]
+layout_mode = 2
+acao = &"mover_baixo"
+
+[node name="TextoDescer" type="Label" parent="HUD/Interface/ControlesEsquerda" unique_id=1255859479]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6039216, 0.65882355, 0.7372549, 1)
+theme_override_font_sizes/font_size = 16
+text = "Descer"
+vertical_alignment = 1
+
+[node name="ControlesDireita" type="HBoxContainer" parent="HUD/Interface" unique_id=1453620418]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -352.0
+offset_top = -64.0
+offset_right = -32.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 12
+alignment = 2
+
+[node name="Subir" parent="HUD/Interface/ControlesDireita" unique_id=1180784238 instance=ExtResource("4_i2x28")]
+layout_mode = 2
+acao = &"jogador2_cima"
+cor_destaque = Color(1, 0.57254905, 0.49411765, 1)
+
+[node name="TextoSubir" type="Label" parent="HUD/Interface/ControlesDireita" unique_id=628906566]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6039216, 0.65882355, 0.7372549, 1)
+theme_override_font_sizes/font_size = 16
+text = "Subir"
+vertical_alignment = 1
+
+[node name="Descer" parent="HUD/Interface/ControlesDireita" unique_id=486718406 instance=ExtResource("4_i2x28")]
+layout_mode = 2
+acao = &"jogador2_baixo"
+cor_destaque = Color(1, 0.57254905, 0.49411765, 1)
+
+[node name="TextoDescer" type="Label" parent="HUD/Interface/ControlesDireita" unique_id=559540140]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6039216, 0.65882355, 0.7372549, 1)
+theme_override_font_sizes/font_size = 16
+text = "Descer"
+vertical_alignment = 1
+
+[node name="AvisoMenu" type="Label" parent="HUD/Interface" unique_id=814780167]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -64.0
+offset_right = 120.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.6039216, 0.65882355, 0.7372549, 1)
+theme_override_font_sizes/font_size = 16
+text = "Esc · Pausar"
+horizontal_alignment = 1
+
+[node name="Mensagem" type="Label" parent="HUD" unique_id=1775296329]
+custom_minimum_size = Vector2(800, 130)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 260.0
+offset_right = 400.0
+offset_bottom = 390.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pausa" type="Control" parent="HUD" unique_id=2041255649]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Escurecimento" type="ColorRect" parent="HUD/Pausa" unique_id=1966519001]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.75000006)
+
+[node name="Centralizador" type="CenterContainer" parent="HUD/Pausa" unique_id=2003016950]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Painel" type="PanelContainer" parent="HUD/Pausa/Centralizador" unique_id=1783041585]
+custom_minimum_size = Vector2(440, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_boyft")
+
+[node name="MargemInterna" type="MarginContainer" parent="HUD/Pausa/Centralizador/Painel" unique_id=111199551]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Conteudo" type="VBoxContainer" parent="HUD/Pausa/Centralizador/Painel/MargemInterna" unique_id=1958622954]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Titulo" type="Label" parent="HUD/Pausa/Centralizador/Painel/MargemInterna/Conteudo" unique_id=1018484738]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9529412, 0.9647059, 0.9882353, 1)
+theme_override_font_sizes/font_size = 32
+text = "Partida pausada"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Descricao" type="Label" parent="HUD/Pausa/Centralizador/Painel/MargemInterna/Conteudo" unique_id=168693170]
+custom_minimum_size = Vector2(12, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6039216, 0.65882355, 0.7372549, 1)
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 3
+
+[node name="Continuar" type="Button" parent="HUD/Pausa/Centralizador/Painel/MargemInterna/Conteudo" unique_id=1461395488]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Continuar"
+
+[node name="Configurar" type="Button" parent="HUD/Pausa/Centralizador/Painel/MargemInterna/Conteudo" unique_id=1873338312]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Configurar"
+
+[node name="VoltarMenu" type="Button" parent="HUD/Pausa/Centralizador/Painel/MargemInterna/Conteudo" unique_id=559434290]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Voltar"
+
+[node name="Contagem" type="Control" parent="HUD" unique_id=2041806146]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Escurecimento" type="ColorRect" parent="HUD/Contagem" unique_id=502315668]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="Label" type="Label" parent="HUD/Contagem" unique_id=1422203066]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -14.0
+offset_right = 20.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9529412, 0.9647059, 0.9882353, 1)
+theme_override_font_sizes/font_size = 96
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[editable path="Bola"]

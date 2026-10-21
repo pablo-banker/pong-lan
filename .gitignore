@@ -1,0 +1,5 @@
+/builds/
+.godot/
+.DS_Store
+
+.editorconfig

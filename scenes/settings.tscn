@@ -1,0 +1,168 @@
+[gd_scene format=3 uid="uid://bkorjkvrebdim"]
+
+[ext_resource type="Script" uid="uid://cagxy1a4lk28l" path="res://scripts/settings.gd" id="1_5p8wc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5p8wc"]
+bg_color = Color(0.08235294, 0.12156863, 0.1882353, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.16470589, 0.21960784, 0.3137255, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Settings" type="Control" unique_id=1856372170]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5p8wc")
+
+[node name="Fundo" type="ColorRect" parent="." unique_id=220150033]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.043137256, 0.07058824, 0.1254902, 1)
+
+[node name="Margem" type="MarginContainer" parent="." unique_id=1853724885]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="Conteudo" type="VBoxContainer" parent="Margem" unique_id=508003333]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Titulo" type="Label" parent="Margem/Conteudo" unique_id=1597937103]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9529412, 0.9647059, 0.9882353, 1)
+theme_override_font_sizes/font_size = 40
+text = "Configurações"
+
+[node name="Explicacao" type="Label" parent="Margem/Conteudo" unique_id=1591671695]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6039216, 0.65882355, 0.7372549, 1)
+theme_override_font_sizes/font_size = 18
+text = "Clique em um controle e pressione a nova tecla.
+Na LAN, cada dispositivo usa os controles do jogador 1."
+
+[node name="EspacoSuperior" type="Control" parent="Margem/Conteudo" unique_id=1151253244]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Jogadores" type="HBoxContainer" parent="Margem/Conteudo" unique_id=554792080]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="PainelJ1" type="PanelContainer" parent="Margem/Conteudo/Jogadores" unique_id=1190283598]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_5p8wc")
+
+[node name="MargemJ1" type="MarginContainer" parent="Margem/Conteudo/Jogadores/PainelJ1" unique_id=1404409856]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="ColunaJ1" type="VBoxContainer" parent="Margem/Conteudo/Jogadores/PainelJ1/MargemJ1" unique_id=1470465925]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="NomeJ1" type="Label" parent="Margem/Conteudo/Jogadores/PainelJ1/MargemJ1/ColunaJ1" unique_id=1068512379]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.35686275, 0.6156863, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "Jogador 1"
+
+[node name="J1Cima" type="Button" parent="Margem/Conteudo/Jogadores/PainelJ1/MargemJ1/ColunaJ1" unique_id=509348073]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="J1Baixo" type="Button" parent="Margem/Conteudo/Jogadores/PainelJ1/MargemJ1/ColunaJ1" unique_id=1946705924]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="PainelJ2" type="PanelContainer" parent="Margem/Conteudo/Jogadores" unique_id=437589870]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_5p8wc")
+
+[node name="MargemJ2" type="MarginContainer" parent="Margem/Conteudo/Jogadores/PainelJ2" unique_id=1312618419]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="ColunaJ2" type="VBoxContainer" parent="Margem/Conteudo/Jogadores/PainelJ2/MargemJ2" unique_id=565310479]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="NomeJ1" type="Label" parent="Margem/Conteudo/Jogadores/PainelJ2/MargemJ2/ColunaJ2" unique_id=1907131302]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.57254905, 0.49411765, 1)
+theme_override_font_sizes/font_size = 24
+text = "Jogador 2"
+
+[node name="J2Cima" type="Button" parent="Margem/Conteudo/Jogadores/PainelJ2/MargemJ2/ColunaJ2" unique_id=79669358]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="J2Baixo" type="Button" parent="Margem/Conteudo/Jogadores/PainelJ2/MargemJ2/ColunaJ2" unique_id=187393956]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="Aviso" type="Label" parent="Margem/Conteudo" unique_id=1641252676]
+custom_minimum_size = Vector2(10, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6039216, 0.65882355, 0.7372549, 1)
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 3
+
+[node name="EspacoInferior" type="Control" parent="Margem/Conteudo" unique_id=230389071]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Rodape" type="HBoxContainer" parent="Margem/Conteudo" unique_id=539387892]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Restaurar" type="Button" parent="Margem/Conteudo/Rodape" unique_id=747829021]
+layout_mode = 2
+text = "Restaurar padrão"
+
+[node name="Voltar" type="Button" parent="Margem/Conteudo/Rodape" unique_id=756799146]
+layout_mode = 2
+text = "Voltar"
+
+[node name="Salvamento" type="Label" parent="Margem/Conteudo/Rodape" unique_id=1815414572]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.6039216, 0.65882355, 0.7372549, 1)
+theme_override_font_sizes/font_size = 16
+text = "Alterações salvas automaticamente."
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 3

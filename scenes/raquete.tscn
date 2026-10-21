@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bj257cgmnkn77"]
+
+[ext_resource type="Script" uid="uid://d3bmmijcbrnhh" path="res://scripts/raquete.gd" id="1_6u0b6"]
+[ext_resource type="Shader" uid="uid://wiujwxp8p3l4" path="res://ui/glow_raquete.gdshader" id="2_dnrfo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6u0b6"]
+resource_local_to_scene = true
+size = Vector2(20, 110)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dnrfo"]
+resource_local_to_scene = true
+shader = ExtResource("2_dnrfo")
+shader_parameter/cor = Color(0.35686275, 0.6156863, 1, 1)
+shader_parameter/intensidade = 0.6
+shader_parameter/alcance = 10.0
+
+[node name="Raquete" type="CharacterBody2D" unique_id=1384058986]
+script = ExtResource("1_6u0b6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1055287164]
+shape = SubResource("RectangleShape2D_6u0b6")
+
+[node name="Glow" type="ColorRect" parent="." unique_id=1376880111]
+material = SubResource("ShaderMaterial_dnrfo")
+custom_minimum_size = Vector2(80, 170)
+offset_left = -40.0
+offset_top = -85.0
+offset_right = 40.0
+offset_bottom = 85.0
+color = Color(0.35686275, 0.6156863, 1, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=900190461]
+color = Color(0.35686275, 0.6156863, 1, 1)
+polygon = PackedVector2Array(-10, -55, 10, -55, 10, 55, -10, 55)
